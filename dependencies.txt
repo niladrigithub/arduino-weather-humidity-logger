@@ -1,1 +1,44 @@
-DHT Sensor Library: link_to_library
+DHT Sensor Library
+==================
+
+**Description:** A library for interacting with DHT series sensors, commonly used for humidity and temperature measurements.
+
+**Author:** Adafruit (or the relevant author/organization)
+
+**Latest Version:** 1.4.3
+
+**GitHub Repository:** [Link to the library's GitHub repository or the source from where it was obtained]
+
+**Installation:**
+- Open the Arduino IDE.
+- Navigate to "Sketch" -> "Include Library" -> "Manage Libraries..."
+- Search for "DHT" and install the library named "DHT sensor library" by Adafruit.
+
+**Usage:**
+- Include the library in your Arduino sketch: `#include <DHT.h>`
+- Declare an instance of the `DHT` class, specifying the pin and sensor type.
+- Initialize the sensor in the `setup()` function using `dht.begin()`.
+- Read humidity and temperature values using the library's functions in the `loop()` or wherever needed.
+
+**Example:**
+```cpp
+#include <DHT.h>
+
+#define DHTPIN 2        // Pin where the DHT sensor is connected
+#define DHTTYPE DHT22   // DHT sensor type (DHT11, DHT21, or DHT22)
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+
+void loop() {
+  delay(2000);
+
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+
+  // Your code to handle humidity and temperature values
+}
